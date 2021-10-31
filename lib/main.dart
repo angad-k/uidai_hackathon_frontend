@@ -1,6 +1,7 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'screens/qrcodescannerexample.dart';
+import 'screens/documentphotos.dart';
 void main() {
   runApp(MyApp());
 }
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: ScanQR(),
+      home: DocumentPhotosScreen(),
     );
   }
 }
