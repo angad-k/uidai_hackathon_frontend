@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/login.dart';
+import 'screens/qrcodegen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LogInScreen(),
+      home: QRCodeGen("Show the QR code to the operator to start the process.", "TESTING"),
     );
   }
 }
