@@ -1,7 +1,9 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:uidai_frontend/screens/success.dart';
 import 'screens/qrcodescannerexample.dart';
 import 'screens/documentphotos.dart';
+import 'screens/login.dart';
 void main() {
   runApp(MyApp());
 }
@@ -25,7 +27,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: DocumentPhotosScreen(),
+      home: LogInScreen(),
+      //home: SuccessScreen(),
     );
   }
 }

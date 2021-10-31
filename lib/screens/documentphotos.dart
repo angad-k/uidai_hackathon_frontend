@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:camera_camera/camera_camera.dart';
 import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'dart:io';
+
+import 'package:uidai_frontend/screens/success.dart';
 class DocumentPhotosScreen extends StatefulWidget {
   @override
   _DocumentPhotosScreenState createState() => _DocumentPhotosScreenState();
@@ -70,6 +72,7 @@ class _DocumentPhotosScreenState extends State<DocumentPhotosScreen> {
                     child: Text("SUBMIT", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20, color: Colors.white), textAlign: TextAlign.center, ),
                     onPressed: () {
                       log("submitted");
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SuccessScreen()));
                       }
                     ),
                 SizedBox(height: 15,)

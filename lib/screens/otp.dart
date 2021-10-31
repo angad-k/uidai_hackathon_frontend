@@ -2,7 +2,9 @@ import 'dart:developer';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:flutter/material.dart';
+import 'package:uidai_frontend/screens/documentphotos.dart';
 import 'package:uidai_frontend/screens/token.dart';
+import 'package:barcode_scan_fix/barcode_scan.dart';
 
 class OtpScreen extends StatefulWidget {
   OtpScreen({Key? key, required this.aadhaarPhone}) : super(key: key);
@@ -55,9 +57,11 @@ class _OtpScreenState extends State<OtpScreen> {
                 style: TextStyle(fontSize: 17),
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 fieldStyle: FieldStyle.underline,
-                onCompleted: (enteredPin) {
+                onCompleted: (enteredPin) async {
                   print("Completed: " + enteredPin);
                   pin = int.parse(enteredPin);
+                  String codeScanner = await BarcodeScanner.scan();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DocumentPhotosScreen()));
                 },
                 onChanged: (s) {
                   //do nothing for now, put this here kyuki otherwise otp wala widget ro deta hai.
@@ -72,6 +76,7 @@ class _OtpScreenState extends State<OtpScreen> {
               style: TextStyle(
                   color: Colors.red, fontSize: 15, fontWeight: FontWeight.w600),
             ),
+            /*
             SizedBox(
               height: 20,
             ),
@@ -101,7 +106,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       errorMsg = "Please enter the correct OTP.";
                     });
                   }
-                }),
+                }),*/
             SizedBox(
               height: 50,
             )
