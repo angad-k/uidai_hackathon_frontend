@@ -1,9 +1,8 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
-import 'package:tesseract_ocr/tesseract_ocr.dart';
 import 'package:flutter/material.dart';
 import 'package:camera_camera/camera_camera.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:simple_ocr_plugin/simple_ocr_plugin.dart';
 import 'dart:io';
 class DocumentPhotosScreen extends StatefulWidget {
   @override
@@ -27,7 +26,14 @@ class _DocumentPhotosScreenState extends State<DocumentPhotosScreen> {
             )));
   }
   Future<String> getText(File file) async {
-    String text = await TesseractOcr.extractText(file.path, language: 'eng');
+    String text = "OCR failed to work. Retry with better lighting.";
+    try {
+      text = await SimpleOcrPlugin.performOCR(file.path);
+      print("OCR results => $text");
+
+    } catch(e) {
+      print("exception on OCR operation: ${e.toString()}");
+    }
     addresscontroller.text = text;
     return text;
   }
