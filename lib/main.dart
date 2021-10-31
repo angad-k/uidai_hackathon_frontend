@@ -1,5 +1,6 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
-import 'screens/qrcodegen.dart';
+import 'screens/qrcodescannerexample.dart';
 void main() {
   runApp(MyApp());
 }
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Aadhaar Address Update',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: QRCodeGen("Show the QR code to the operator to start the process.", "TESTING"),
+      home: ScanQR(),
     );
   }
 }
