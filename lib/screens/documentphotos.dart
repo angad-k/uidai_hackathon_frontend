@@ -44,21 +44,26 @@ class _DocumentPhotosScreenState extends State<DocumentPhotosScreen> {
         title: Text("Aadhaar address update"),
       ),
       body: Center(
-        child: Column(
-          children: [
-            TextField(
-              controller: addresscontroller,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0
-              ),
-              decoration: InputDecoration(
-                  fillColor: Colors.grey,
-                  labelText: "Address",
-                  labelStyle: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)
-              ),
-            )
-          ],
+        child: Container(
+          padding: EdgeInsets.all(50),
+          child: Column(
+            children: [
+              TextField(
+                controller: addresscontroller,
+                minLines: 2,
+                maxLines: 50,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.0
+                ),
+                decoration: InputDecoration(
+                    fillColor: Colors.grey,
+                    labelText: "Address",
+                    labelStyle: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)
+                ),
+              )
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
