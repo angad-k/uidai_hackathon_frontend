@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -44,25 +45,36 @@ class _DocumentPhotosScreenState extends State<DocumentPhotosScreen> {
         title: Text("Aadhaar address update"),
       ),
       body: Center(
-        child: Container(
-          padding: EdgeInsets.all(50),
-          child: Column(
-            children: [
-              TextField(
-                controller: addresscontroller,
-                minLines: 2,
-                maxLines: 50,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20.0
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(50),
+            child: Column(
+              children: [
+                Text("Take a photo of the supporting document.", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black), textAlign: TextAlign.center, ),
+                TextField(
+                  controller: addresscontroller,
+                  minLines: 2,
+                  maxLines: 50,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20.0
+                  ),
+                  decoration: InputDecoration(
+                      fillColor: Colors.grey,
+                      labelText: "Address",
+                      labelStyle: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)
+                  ),
                 ),
-                decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                    labelText: "Address",
-                    labelStyle: TextStyle(fontWeight: FontWeight.w600, color: Colors.grey)
-                ),
-              )
-            ],
+                MaterialButton(
+                    color: Colors.blue,
+                    child: Text("SUBMIT", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20, color: Colors.white), textAlign: TextAlign.center, ),
+                    onPressed: () {
+                      log("submitted");
+                      }
+                    ),
+                SizedBox(height: 15,)
+              ],
+            ),
           ),
         ),
       ),
